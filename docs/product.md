@@ -22,7 +22,7 @@ Provide users with a simple way to:
 
 ---
 
-# 2. MVP
+## 2. MVP
 
 The first version of Tasks Planner will focus on the basic task management experience.
 
@@ -132,7 +132,7 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 ---
 
-# 3. Future Features
+## 3. Future Features
 
 The following features are outside the initial MVP and may be considered as the project evolves.
 
@@ -173,7 +173,7 @@ Potential capabilities:
 
 ---
 
-# 4. Non-Functional Requirements
+## 4. Non-Functional Requirements
 
 The application should also consider:
 
@@ -189,7 +189,7 @@ The application should also consider:
 
 ---
 
-# 5. Technical Direction
+## 5. Technical Direction
 
 The project will be developed using:
 
