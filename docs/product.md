@@ -12,13 +12,12 @@ The project is also being developed as a learning project to practice and consol
 
 Provide users with a simple way to:
 
-* Create tasks
-* View their tasks
-* Update task information
-* Mark tasks as completed
-* Delete tasks
-* Organize and filter tasks
-
+- Create tasks
+- View their tasks
+- Update task information
+- Mark tasks as completed
+- Delete tasks
+- Organize and filter tasks
 
 ---
 
@@ -36,10 +35,10 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-* [ ] The user can enter a task title.
-* [ ] The user can submit the task.
-* [ ] A successfully created task appears in the task list.
-* [ ] A task cannot be created without a title.
+- [ ] The user can enter a task title.
+- [ ] The user can submit the task.
+- [ ] A successfully created task appears in the task list.
+- [ ] A task cannot be created without a title.
 
 ---
 
@@ -51,10 +50,10 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-* [ ] The application displays the user's tasks.
-* [ ] Each task displays its relevant information.
-* [ ] The user can distinguish completed and pending tasks.
-* [ ] An appropriate empty state is displayed when there are no tasks.
+- [ ] The application displays the user's tasks.
+- [ ] Each task displays its relevant information.
+- [ ] The user can distinguish completed and pending tasks.
+- [ ] An appropriate empty state is displayed when there are no tasks.
 
 ---
 
@@ -66,9 +65,9 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-* [ ] The user can mark a pending task as completed.
-* [ ] The completed state is visually distinguishable.
-* [ ] The user can mark a completed task as pending again.
+- [ ] The user can mark a pending task as completed.
+- [ ] The completed state is visually distinguishable.
+- [ ] The user can mark a completed task as pending again.
 
 ---
 
@@ -80,10 +79,10 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-* [ ] The user can edit an existing task.
-* [ ] The user can save the changes.
-* [ ] The updated information is displayed in the task list.
-* [ ] The user cannot save an invalid task.
+- [ ] The user can edit an existing task.
+- [ ] The user can save the changes.
+- [ ] The updated information is displayed in the task list.
+- [ ] The user cannot save an invalid task.
 
 ---
 
@@ -95,9 +94,9 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-* [ ] The user can delete an existing task.
-* [ ] The deleted task no longer appears in the task list.
-* [ ] The application prevents accidental deletion when confirmation is required.
+- [ ] The user can delete an existing task.
+- [ ] The deleted task no longer appears in the task list.
+- [ ] The application prevents accidental deletion when confirmation is required.
 
 ---
 
@@ -111,9 +110,9 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-* [ ] A task can have a category.
-* [ ] The category is displayed with the task.
-* [ ] The user can change a task's category.
+- [ ] A task can have a category.
+- [ ] The category is displayed with the task.
+- [ ] The user can change a task's category.
 
 ---
 
@@ -125,10 +124,10 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-* [ ] The user can filter tasks by completion status.
-* [ ] The user can filter tasks by category.
-* [ ] The task list updates according to the selected filters.
-* [ ] The user can clear the applied filters.
+- [ ] The user can filter tasks by completion status.
+- [ ] The user can filter tasks by category.
+- [ ] The task list updates according to the selected filters.
+- [ ] The user can clear the applied filters.
 
 ---
 
@@ -140,36 +139,36 @@ The following features are outside the initial MVP and may be considered as the 
 
 Potential capabilities:
 
-* Task description
-* Due date
-* Priority
-* Tags
-* Subtasks
+- Task description
+- Due date
+- Priority
+- Tags
+- Subtasks
 
 ## Feature 4 — Task Search
 
 Potential capabilities:
 
-* Search tasks by title
-* Search tasks by description
-* Combine search with filters
+- Search tasks by title
+- Search tasks by description
+- Combine search with filters
 
 ## Feature 5 — Persistence
 
 Potential capabilities:
 
-* Persist tasks between sessions
-* Store tasks in a database
-* Synchronize task data with an API
+- Persist tasks between sessions
+- Store tasks in a database
+- Synchronize task data with an API
 
 ## Feature 6 — User Accounts
 
 Potential capabilities:
 
-* User registration
-* Login
-* Authentication
-* User-specific task lists
+- User registration
+- Login
+- Authentication
+- User-specific task lists
 
 ---
 
@@ -177,15 +176,15 @@ Potential capabilities:
 
 The application should also consider:
 
-* Accessibility
-* Responsive design
-* Performance
-* Maintainable and reusable components
-* Type safety
-* Automated testing
-* Clear error handling
-* Consistent code style
-* Good user experience
+- Accessibility
+- Responsive design
+- Performance
+- Maintainable and reusable components
+- Type safety
+- Automated testing
+- Clear error handling
+- Consistent code style
+- Good user experience
 
 ---
 
@@ -193,13 +192,13 @@ The application should also consider:
 
 The project will be developed using:
 
-* **React** — UI and component architecture
-* **Next.js** — application framework and routing
-* **TypeScript** — static typing
-* **Tailwind CSS** — styling
-* **React Compiler** — React optimization
-* **Git** — version control
-* **GitHub** — source code repository
-* **GitHub Copilot** — AI-assisted development
+- **React** — UI and component architecture
+- **Next.js** — application framework and routing
+- **TypeScript** — static typing
+- **Tailwind CSS** — styling
+- **React Compiler** — React optimization
+- **Git** — version control
+- **GitHub** — source code repository
+- **GitHub Copilot** — AI-assisted development
 
 Additional technologies may be introduced as the product requirements evolve.

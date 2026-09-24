@@ -1,6 +1,6 @@
 # Tasks Planner
 
-`tasks-planner` is a task management application built with **Next.js (App Router)**, **React**, **TypeScript**, and **Tailwind CSS**. 
+`tasks-planner` is a task management application built with **Next.js (App Router)**, **React**, **TypeScript**, and **Tailwind CSS**.
 
 The project is designed to apply modern front-end architecture, clean code practices, reusable components, and AI-assisted development workflows.
 
@@ -22,16 +22,19 @@ The project is designed to apply modern front-end architecture, clean code pract
 ## Getting Started
 
 1. Clone the repository:
+
 ```sh
 git clone https://github.com/your-username/tasks-planner.git
 ```
 
 Install dependencies:
+
 ```sh
 npm install
 ```
 
 Run the development server:
+
 ```sh
 npm run dev
 ```
