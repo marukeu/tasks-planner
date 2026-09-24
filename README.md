@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tasks Planner
+
+`tasks-planner` is a task management application built with **Next.js (App Router)**, **React**, **TypeScript**, and **Tailwind CSS**. 
+
+The project is designed to apply modern front-end architecture, clean code practices, reusable components, and AI-assisted development workflows.
+
+## Tech Stack
+
+- **Framework:** Next.js (App Router)
+- **Core Library:** React 19 (React Compiler enabled)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Package Manager:** npm
+
+## Architecture & Best Practices
+
+- **Server Components by Default:** Prioritize React Server Components (RSC) for performance, restricting `'use client'` to interactive elements and state management.
+- **State Immutability:** Enforce immutable state updates in React.
+- **Strict Typing:** Consistent use of explicit TypeScript interfaces and types, prohibiting `any`.
+- **Conventional Commits:** Standardized git commit history (`feat`, `fix`, `docs`, `refactor`, etc.).
 
 ## Getting Started
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Clone the repository:
+```sh
+git clone https://github.com/your-username/tasks-planner.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install dependencies:
+```sh
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Run the development server:
+```sh
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open http://localhost:3000 in your browser.
