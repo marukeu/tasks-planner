@@ -5,6 +5,7 @@ type TaskListProps = {
 export function TaskList({ taskList }: TaskListProps) {
   return (
     <section>
+      <h2>Tasks</h2>
       {taskList.length === 0 ? (
         <p>No tasks yet</p>
       ) : (
