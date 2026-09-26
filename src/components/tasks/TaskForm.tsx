@@ -9,13 +9,22 @@ export function TaskForm({ onCreateTask }: TaskFormProps) {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onCreateTask(title);
-    setTitle(title);
+
+    const task = title.trim();
+
+    if (task.length > 0) {
+      onCreateTask(task);
+      setTitle('');
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input value={title} onChange={(e) => setTitle(e.target.value)} />
+      <input
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        required
+      />
       <button type="submit">Create task</button>
     </form>
   );
