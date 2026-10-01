@@ -13,8 +13,11 @@ export default function Home() {
   };
 
   return (
-    <main>
-      <h1>Tasks Planner</h1>
+    <main className="min-h-screen flex flex-col items-center py-10 px-6 sm:px-12 lg:px-20">
+      <hgroup className="text-center mb-10">
+        <h1 className="font-extrabold text-4xl text-heading">Tasks Planner</h1>
+        <p className="text-text-muted">Create and organize your tasks.</p>
+      </hgroup>
       <TaskForm onCreateTask={handleCreateTask} />
       <TaskList taskList={taskList} />
     </main>

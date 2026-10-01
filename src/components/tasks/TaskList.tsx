@@ -1,13 +1,23 @@
+import { PencilSparkles } from 'lucide-react';
+
 type TaskListProps = {
   taskList: string[];
 };
 
 export function TaskList({ taskList }: TaskListProps) {
   return (
-    <section>
-      <h2>Tasks</h2>
+    <section className="mb-10 p-4 md:p-6 w-full md:max-w-140 min-h-60 rounded-md bg-white">
+      <h2 className="mb-6 font-semibold text-2xl">Tasks</h2>
       {taskList.length === 0 ? (
-        <p>No tasks yet</p>
+        <div className="text-center text-text-muted">
+          <PencilSparkles
+            size={32}
+            aria-hidden="true"
+            className="mx-auto my-4 block"
+          />
+          <p className="font-semibold text-base">No tasks yet</p>
+          <p className="text-sm mt-2">Add a task above to get started.</p>
+        </div>
       ) : (
         <ul>
           {taskList.map((task, i) => (
