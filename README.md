@@ -27,16 +27,30 @@ The project is designed to apply modern front-end architecture, clean code pract
 git clone https://github.com/your-username/tasks-planner.git
 ```
 
-Install dependencies:
+2. Install dependencies:
 
 ```sh
 npm install
 ```
 
-Run the development server:
+3. Run the development server:
 
 ```sh
 npm run dev
 ```
 
-Open http://localhost:3000 in your browser.
+4. Open http://localhost:3000 in your browser.
+
+## Available Scripts
+
+Run the test suite:
+
+```sh
+npm test
+```
+
+Create an optimized production build:
+
+```sh
+npm run build
+```
