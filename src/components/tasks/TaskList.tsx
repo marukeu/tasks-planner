@@ -7,7 +7,9 @@ type TaskListProps = {
 export function TaskList({ taskList }: TaskListProps) {
   return (
     <section className="mb-10 p-4 md:p-6 w-full md:max-w-140 min-h-60 rounded-md bg-white">
-      <h2 className="mb-6 font-semibold text-2xl">Tasks</h2>
+      <h2 id="tasks-list" className="mb-6 font-semibold text-2xl">
+        Tasks
+      </h2>
       {taskList.length === 0 ? (
         <div className="text-center text-text-muted">
           <PencilSparkles
@@ -19,9 +21,11 @@ export function TaskList({ taskList }: TaskListProps) {
           <p className="text-sm mt-2">Add a task above to get started.</p>
         </div>
       ) : (
-        <ul>
+        <ul aria-labelledby="tasks-list" className="space-y-2">
           {taskList.map((task, i) => (
-            <li key={i}>{task}</li>
+            <li key={i} className="rounded-md border border-border p-3">
+              {task}
+            </li>
           ))}
         </ul>
       )}
