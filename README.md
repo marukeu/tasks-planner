@@ -1,8 +1,10 @@
 # Tasks Planner
 
-`tasks-planner` is a task management application built with **Next.js (App Router)**, **React**, **TypeScript**, and **Tailwind CSS**.
+`tasks-planner` is a task management application built with **Next.js (App Router)**, **React**, **TypeScript** and **Tailwind CSS**, featuring automated testing and CI/CD.
 
 The project is designed to apply modern front-end architecture, clean code practices, reusable components, and AI-assisted development workflows.
+
+https://tasks-planner-maru.vercel.app/
 
 ## Tech Stack
 
@@ -54,3 +56,23 @@ Create an optimized production build:
 ```sh
 npm run build
 ```
+
+## CI/CD
+
+This project uses **GitHub Actions** for continuous integration and **Vercel** for continuous deployment.
+
+### Continuous Integration
+
+Every pull request to `main` automatically runs:
+
+- Dependency installation with `npm ci`
+- Automated tests with Jest and React Testing Library
+- Production build validation with Next.js
+
+The `main` branch is protected and requires the CI checks to pass before merging.
+
+### Continuous Deployment
+
+Production deployments are automatically triggered when changes are merged into `main`.
+
+Pull requests also generate Vercel Preview Deployments, allowing changes to be reviewed before they reach production.

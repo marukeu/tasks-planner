@@ -50,9 +50,9 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-- [ ] The application displays the user's tasks.
-- [ ] Each task displays its relevant information.
-- [ ] The user can distinguish completed and pending tasks.
+- [ ] The application displays all created tasks.
+- [ ] Each task displays its title.
+- [ ] Tasks are displayed in a clear and readable list.
 - [ ] An appropriate empty state is displayed when there are no tasks.
 
 ---
@@ -66,7 +66,7 @@ The first version of Tasks Planner will focus on the basic task management exper
 #### Acceptance Criteria
 
 - [ ] The user can mark a pending task as completed.
-- [ ] The completed state is visually distinguishable.
+- [ ] The completed state is visually distinguishable from the pending state.
 - [ ] The user can mark a completed task as pending again.
 
 ---
