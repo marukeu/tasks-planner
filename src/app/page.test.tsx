@@ -64,4 +64,21 @@ describe('Home', () => {
       }),
     ).not.toBeChecked();
   });
+
+  it('edits and displays an updated task title', async () => {
+    const user = userEvent.setup();
+    render(<Home />);
+
+    await user.type(screen.getByLabelText('Task title'), 'Buy groceries');
+    await user.click(screen.getByRole('button', { name: 'Create task' }));
+    await user.click(screen.getByRole('button', { name: 'Edit Buy groceries' }));
+
+    const input = screen.getByRole('textbox', { name: 'Edit task title' });
+    await user.clear(input);
+    await user.type(input, 'Buy vegetables');
+    await user.click(screen.getByRole('button', { name: 'Save' }));
+
+    expect(screen.getByText('Buy vegetables')).toBeInTheDocument();
+    expect(screen.queryByText('Buy groceries')).not.toBeInTheDocument();
+  });
 });

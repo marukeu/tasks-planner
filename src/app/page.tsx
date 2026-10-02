@@ -26,6 +26,14 @@ export default function Home() {
     );
   };
 
+  const handleUpdateTask = (id: string, title: string) => {
+    setTasks((currentTasks) =>
+      currentTasks.map((task) =>
+        task.id === id ? { ...task, title } : task,
+      ),
+    );
+  };
+
   return (
     <main className="min-h-screen flex flex-col items-center py-10 px-6 sm:px-12 lg:px-20">
       <hgroup className="text-center mb-10">
@@ -33,7 +41,11 @@ export default function Home() {
         <p className="text-text-muted">Create and organize your tasks.</p>
       </hgroup>
       <TaskForm onCreateTask={handleCreateTask} />
-      <TaskList tasks={tasks} onToggleTask={handleToggleTask} />
+      <TaskList
+        tasks={tasks}
+        onToggleTask={handleToggleTask}
+        onUpdateTask={handleUpdateTask}
+      />
     </main>
   );
 }
