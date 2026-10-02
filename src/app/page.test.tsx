@@ -32,4 +32,36 @@ describe('Home', () => {
     expect(screen.getByText('Buy groceries')).toBeInTheDocument();
     expect(screen.queryByText('No tasks yet')).not.toBeInTheDocument();
   });
+
+  it('complete and uncomplete a task', async () => {
+    const user = userEvent.setup();
+    render(<Home />);
+
+    await user.type(screen.getByLabelText('Task title'), 'Buy groceries');
+    await user.click(screen.getByRole('button', { name: 'Create task' }));
+
+    const checkbox = screen.getByRole('checkbox', {
+      name: 'Mark Buy groceries as complete',
+    });
+    await user.click(checkbox);
+
+    expect(checkbox).toBeChecked();
+    expect(
+      screen.getByRole('checkbox', {
+        name: 'Mark Buy groceries as incomplete',
+      }),
+    ).toBeChecked();
+
+    await user.click(
+      screen.getByRole('checkbox', {
+        name: 'Mark Buy groceries as incomplete',
+      }),
+    );
+
+    expect(
+      screen.getByRole('checkbox', {
+        name: 'Mark Buy groceries as complete',
+      }),
+    ).not.toBeChecked();
+  });
 });
