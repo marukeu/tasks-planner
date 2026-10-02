@@ -42,7 +42,7 @@ export function TaskEditForm({
           setTitle(event.target.value);
           setError('');
         }}
-        required
+        aria-required="true"
         aria-describedby={error ? `edit-error-${taskId}` : undefined}
         aria-invalid={error ? 'true' : undefined}
         className="mt-2 h-10 w-full rounded-md border border-border p-2 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
