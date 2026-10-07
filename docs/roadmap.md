@@ -41,12 +41,12 @@
 ## Phase 2 — Persistence
 
 ### Task 6 — Backend Setup
-- [ ] Create Node.js backend
-- [ ] Configure TypeScript
-- [ ] Configure Express
-- [ ] Add backend development scripts
-- [ ] Add `/health` endpoint
-- [ ] Add backend tests
+- [x] Create Node.js backend
+- [x] Configure TypeScript
+- [x] Configure Express
+- [x] Add backend development scripts
+- [x] Add `/health` endpoint
+- [x] Add backend tests
 
 ### Task 7 — Task REST API
 - [ ] Implement `GET /tasks`
