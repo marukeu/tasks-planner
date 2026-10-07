@@ -81,4 +81,24 @@ describe('Home', () => {
     expect(screen.getByText('Buy vegetables')).toBeInTheDocument();
     expect(screen.queryByText('Buy groceries')).not.toBeInTheDocument();
   });
+
+  it('confirms deletion and removes the task from the list', async () => {
+    const user = userEvent.setup();
+    render(<Home />);
+
+    await user.type(screen.getByLabelText('Task title'), 'Buy groceries');
+    await user.click(screen.getByRole('button', { name: 'Create task' }));
+    await user.click(
+      screen.getByRole('button', { name: 'Delete Buy groceries' }),
+    );
+
+    expect(screen.getByRole('alertdialog')).toHaveTextContent(
+      '"Buy groceries" will be permanently removed.',
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Delete' }));
+
+    expect(screen.queryByText('Buy groceries')).not.toBeInTheDocument();
+    expect(screen.getByText('No tasks yet')).toBeInTheDocument();
+  });
 });

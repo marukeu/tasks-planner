@@ -11,6 +11,7 @@ describe('TaskList', () => {
   const defaultProps = {
     onToggleTask: jest.fn(),
     onUpdateTask: jest.fn(),
+    onDeleteTask: jest.fn(),
   };
 
   it('shows the empty state when there are no tasks', () => {
@@ -69,6 +70,7 @@ describe('TaskList', () => {
         tasks={tasks}
         onToggleTask={onToggleTask}
         onUpdateTask={jest.fn()}
+        onDeleteTask={jest.fn()}
       />,
     );
 
@@ -87,6 +89,7 @@ describe('TaskList', () => {
         tasks={tasks}
         onToggleTask={onToggleTask}
         onUpdateTask={jest.fn()}
+        onDeleteTask={jest.fn()}
       />,
     );
 
@@ -103,6 +106,7 @@ describe('TaskList', () => {
         tasks={tasks}
         onToggleTask={jest.fn()}
         onUpdateTask={onUpdateTask}
+        onDeleteTask={jest.fn()}
       />,
     );
 
@@ -126,6 +130,7 @@ describe('TaskList', () => {
         tasks={tasks}
         onToggleTask={jest.fn()}
         onUpdateTask={onUpdateTask}
+        onDeleteTask={jest.fn()}
       />,
     );
 
@@ -149,6 +154,7 @@ describe('TaskList', () => {
         tasks={tasks}
         onToggleTask={jest.fn()}
         onUpdateTask={onUpdateTask}
+        onDeleteTask={jest.fn()}
       />,
     );
 
@@ -157,5 +163,67 @@ describe('TaskList', () => {
 
     expect(onUpdateTask).not.toHaveBeenCalled();
     expect(screen.getByText('Buy groceries')).toBeInTheDocument();
+  });
+
+  it('asks for confirmation before deleting a task', async () => {
+    const user = userEvent.setup();
+    const onDeleteTask = jest.fn();
+    render(
+      <TaskList
+        tasks={tasks}
+        onToggleTask={jest.fn()}
+        onUpdateTask={jest.fn()}
+        onDeleteTask={onDeleteTask}
+      />,
+    );
+
+    await user.click(
+      screen.getByRole('button', { name: 'Delete Buy groceries' }),
+    );
+
+    expect(screen.getByRole('alertdialog')).toBeInTheDocument();
+    expect(onDeleteTask).not.toHaveBeenCalled();
+  });
+
+  it('cancels deletion without removing the task', async () => {
+    const user = userEvent.setup();
+    const onDeleteTask = jest.fn();
+    render(
+      <TaskList
+        tasks={tasks}
+        onToggleTask={jest.fn()}
+        onUpdateTask={jest.fn()}
+        onDeleteTask={onDeleteTask}
+      />,
+    );
+
+    await user.click(
+      screen.getByRole('button', { name: 'Delete Buy groceries' }),
+    );
+    await user.click(screen.getByRole('button', { name: 'Cancel' }));
+
+    expect(onDeleteTask).not.toHaveBeenCalled();
+    expect(screen.getByText('Buy groceries')).toBeInTheDocument();
+    expect(screen.queryByRole('alertdialog')).not.toBeInTheDocument();
+  });
+
+  it('deletes the task after confirmation', async () => {
+    const user = userEvent.setup();
+    const onDeleteTask = jest.fn();
+    render(
+      <TaskList
+        tasks={tasks}
+        onToggleTask={jest.fn()}
+        onUpdateTask={jest.fn()}
+        onDeleteTask={onDeleteTask}
+      />,
+    );
+
+    await user.click(
+      screen.getByRole('button', { name: 'Delete Buy groceries' }),
+    );
+    await user.click(screen.getByRole('button', { name: 'Delete' }));
+
+    expect(onDeleteTask).toHaveBeenCalledWith('task-1');
   });
 });
