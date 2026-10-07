@@ -13,9 +13,9 @@ describe('TaskEditForm', () => {
   it('renders the initial title and form actions', () => {
     render(<TaskEditForm {...defaultProps} />);
 
-    expect(screen.getByRole('textbox', { name: 'Edit task title' })).toHaveValue(
-      'Buy groceries',
-    );
+    expect(
+      screen.getByRole('textbox', { name: 'Edit task title' }),
+    ).toHaveValue('Buy groceries');
     expect(screen.getByRole('button', { name: 'Save' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Cancel' })).toBeInTheDocument();
   });
@@ -75,11 +75,7 @@ describe('TaskEditForm', () => {
     const onSave = jest.fn();
     const onCancel = jest.fn();
     render(
-      <TaskEditForm
-        {...defaultProps}
-        onSave={onSave}
-        onCancel={onCancel}
-      />,
+      <TaskEditForm {...defaultProps} onSave={onSave} onCancel={onCancel} />,
     );
 
     await user.click(screen.getByRole('button', { name: 'Cancel' }));

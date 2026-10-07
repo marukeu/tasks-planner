@@ -110,7 +110,9 @@ describe('TaskList', () => {
       />,
     );
 
-    await user.click(screen.getByRole('button', { name: 'Edit Buy groceries' }));
+    await user.click(
+      screen.getByRole('button', { name: 'Edit Buy groceries' }),
+    );
     const input = screen.getByRole('textbox', { name: 'Edit task title' });
     await user.clear(input);
     await user.type(input, 'Buy vegetables');
@@ -134,7 +136,9 @@ describe('TaskList', () => {
       />,
     );
 
-    await user.click(screen.getByRole('button', { name: 'Edit Buy groceries' }));
+    await user.click(
+      screen.getByRole('button', { name: 'Edit Buy groceries' }),
+    );
     const input = screen.getByRole('textbox', { name: 'Edit task title' });
     await user.clear(input);
     await user.type(input, '   ');
@@ -158,7 +162,9 @@ describe('TaskList', () => {
       />,
     );
 
-    await user.click(screen.getByRole('button', { name: 'Edit Buy groceries' }));
+    await user.click(
+      screen.getByRole('button', { name: 'Edit Buy groceries' }),
+    );
     await user.click(screen.getByRole('button', { name: 'Cancel' }));
 
     expect(onUpdateTask).not.toHaveBeenCalled();

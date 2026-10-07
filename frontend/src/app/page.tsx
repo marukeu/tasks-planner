@@ -28,9 +28,7 @@ export default function Home() {
 
   const handleUpdateTask = (id: string, title: string) => {
     setTasks((currentTasks) =>
-      currentTasks.map((task) =>
-        task.id === id ? { ...task, title } : task,
-      ),
+      currentTasks.map((task) => (task.id === id ? { ...task, title } : task)),
     );
   };
 
