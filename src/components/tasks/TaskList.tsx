@@ -6,12 +6,14 @@ type TaskListProps = {
   tasks: Task[];
   onToggleTask: (id: string) => void;
   onUpdateTask: (id: string, title: string) => void;
+  onDeleteTask: (id: string) => void;
 };
 
 export function TaskList({
   tasks,
   onToggleTask,
   onUpdateTask,
+  onDeleteTask,
 }: TaskListProps) {
   return (
     <section className="mb-10 p-4 md:p-6 w-full md:max-w-140 min-h-60 rounded-md bg-white">
@@ -36,6 +38,7 @@ export function TaskList({
               task={task}
               onToggle={onToggleTask}
               onUpdate={onUpdateTask}
+              onDelete={onDeleteTask}
             />
           ))}
         </ul>

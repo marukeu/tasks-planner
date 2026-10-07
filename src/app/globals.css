@@ -9,6 +9,11 @@
   --color-text: #334155;
   --color-text-muted: #64748b;
   --color-border: #e2e8f0;
+  --color-danger-background: #fef2f2;
+  --color-danger-border: #fecaca;
+  --color-danger: #b91c1c;
+  --color-danger-hover: #991b1b;
+  --color-error: #b91c1c;
   --font-sans: var(--font-nunito);
 }
 

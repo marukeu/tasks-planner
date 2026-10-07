@@ -51,7 +51,7 @@ export function TaskEditForm({
         <p
           id={`edit-error-${taskId}`}
           role="alert"
-          className="mt-2 text-sm text-red-700"
+          className="mt-2 text-sm text-error"
         >
           {error}
         </p>
