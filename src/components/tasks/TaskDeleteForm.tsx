@@ -16,7 +16,7 @@ export function TaskDeleteForm({
       role="alertdialog"
       aria-labelledby={`delete-task-title-${taskId}`}
       aria-describedby={`delete-task-description-${taskId}`}
-      className="mt-3 rounded-md border border-red-200 bg-red-50 p-3"
+      className="mt-3 rounded-md border border-danger-border bg-danger-background p-3"
     >
       <p id={`delete-task-title-${taskId}`} className="font-medium">
         Delete this task?
@@ -31,7 +31,7 @@ export function TaskDeleteForm({
         <button
           type="button"
           onClick={() => onDelete(taskId)}
-          className="rounded-md bg-red-700 px-3 py-2 text-sm font-medium text-white hover:bg-red-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-700/40 focus-visible:ring-offset-2"
+          className="rounded-md bg-danger px-3 py-2 text-sm font-medium text-white hover:bg-danger-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-danger/40 focus-visible:ring-offset-2"
         >
           Delete
         </button>

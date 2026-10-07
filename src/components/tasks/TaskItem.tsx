@@ -62,7 +62,7 @@ export function TaskItem({
             type="button"
             onClick={() => setIsDeleting(true)}
             aria-label={`Delete ${task.title}`}
-            className="shrink-0 rounded-md p-2 text-text-muted hover:bg-red-50 hover:text-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
+            className="shrink-0 rounded-md p-2 text-text-muted hover:bg-danger-background hover:text-danger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
           >
             <Trash2 size={16} aria-hidden="true" />
           </button>
