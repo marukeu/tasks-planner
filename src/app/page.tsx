@@ -34,6 +34,10 @@ export default function Home() {
     );
   };
 
+  const handleDeleteTask = (id: string) => {
+    setTasks((currentTasks) => currentTasks.filter((task) => task.id !== id));
+  };
+
   return (
     <main className="min-h-screen flex flex-col items-center py-10 px-6 sm:px-12 lg:px-20">
       <hgroup className="text-center mb-10">
@@ -45,6 +49,7 @@ export default function Home() {
         tasks={tasks}
         onToggleTask={handleToggleTask}
         onUpdateTask={handleUpdateTask}
+        onDeleteTask={handleDeleteTask}
       />
     </main>
   );
