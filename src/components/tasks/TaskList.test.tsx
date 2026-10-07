@@ -8,8 +8,13 @@ const tasks = [
 ];
 
 describe('TaskList', () => {
+  const defaultProps = {
+    onToggleTask: jest.fn(),
+    onUpdateTask: jest.fn(),
+  };
+
   it('shows the empty state when there are no tasks', () => {
-    render(<TaskList tasks={[]} onToggleTask={jest.fn()} />);
+    render(<TaskList tasks={[]} {...defaultProps} />);
 
     expect(screen.getByRole('heading', { name: 'Tasks' })).toBeInTheDocument();
     expect(screen.getByText('No tasks yet')).toBeInTheDocument();
@@ -19,14 +24,14 @@ describe('TaskList', () => {
   });
 
   it('renders the task list when there are tasks', () => {
-    render(<TaskList tasks={tasks} onToggleTask={jest.fn()} />);
+    render(<TaskList tasks={tasks} {...defaultProps} />);
 
     expect(screen.getByText('Buy groceries')).toBeInTheDocument();
     expect(screen.getByText('Study JavaScript')).toBeInTheDocument();
   });
 
   it('renders each task as a list item', () => {
-    render(<TaskList tasks={tasks} onToggleTask={jest.fn()} />);
+    render(<TaskList tasks={tasks} {...defaultProps} />);
     const renderedTasks = screen.getAllByRole('listitem');
 
     expect(renderedTasks).toHaveLength(2);
@@ -35,7 +40,7 @@ describe('TaskList', () => {
   });
 
   it('does not render the empty state when there are tasks', () => {
-    render(<TaskList tasks={[tasks[0]]} onToggleTask={jest.fn()} />);
+    render(<TaskList tasks={[tasks[0]]} {...defaultProps} />);
 
     expect(screen.queryByText('No tasks yet')).not.toBeInTheDocument();
     expect(
@@ -44,7 +49,7 @@ describe('TaskList', () => {
   });
 
   it('renders each task checkbox with its completion state', () => {
-    render(<TaskList tasks={tasks} onToggleTask={jest.fn()} />);
+    render(<TaskList tasks={tasks} {...defaultProps} />);
 
     expect(
       screen.getByRole('checkbox', { name: 'Mark Buy groceries as complete' }),
@@ -59,7 +64,13 @@ describe('TaskList', () => {
   it('notifies the parent when a task is toggled', async () => {
     const user = userEvent.setup();
     const onToggleTask = jest.fn();
-    render(<TaskList tasks={tasks} onToggleTask={onToggleTask} />);
+    render(
+      <TaskList
+        tasks={tasks}
+        onToggleTask={onToggleTask}
+        onUpdateTask={jest.fn()}
+      />,
+    );
 
     await user.click(
       screen.getByRole('checkbox', { name: 'Mark Buy groceries as complete' }),
@@ -71,10 +82,80 @@ describe('TaskList', () => {
   it('toggles a task when its title is clicked', async () => {
     const user = userEvent.setup();
     const onToggleTask = jest.fn();
-    render(<TaskList tasks={tasks} onToggleTask={onToggleTask} />);
+    render(
+      <TaskList
+        tasks={tasks}
+        onToggleTask={onToggleTask}
+        onUpdateTask={jest.fn()}
+      />,
+    );
 
     await user.click(screen.getByText('Buy groceries'));
 
     expect(onToggleTask).toHaveBeenCalledWith('task-1');
+  });
+
+  it('allows a task title to be edited and saved', async () => {
+    const user = userEvent.setup();
+    const onUpdateTask = jest.fn();
+    render(
+      <TaskList
+        tasks={tasks}
+        onToggleTask={jest.fn()}
+        onUpdateTask={onUpdateTask}
+      />,
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Edit Buy groceries' }));
+    const input = screen.getByRole('textbox', { name: 'Edit task title' });
+    await user.clear(input);
+    await user.type(input, 'Buy vegetables');
+    await user.click(screen.getByRole('button', { name: 'Save' }));
+
+    expect(onUpdateTask).toHaveBeenCalledWith('task-1', 'Buy vegetables');
+    expect(
+      screen.queryByRole('textbox', { name: 'Edit task title' }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('does not save an empty or whitespace-only title', async () => {
+    const user = userEvent.setup();
+    const onUpdateTask = jest.fn();
+    render(
+      <TaskList
+        tasks={tasks}
+        onToggleTask={jest.fn()}
+        onUpdateTask={onUpdateTask}
+      />,
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Edit Buy groceries' }));
+    const input = screen.getByRole('textbox', { name: 'Edit task title' });
+    await user.clear(input);
+    await user.type(input, '   ');
+    await user.click(screen.getByRole('button', { name: 'Save' }));
+
+    expect(onUpdateTask).not.toHaveBeenCalled();
+    expect(
+      screen.getByText('Enter a task title before saving.'),
+    ).toBeInTheDocument();
+  });
+
+  it('cancels editing without saving changes', async () => {
+    const user = userEvent.setup();
+    const onUpdateTask = jest.fn();
+    render(
+      <TaskList
+        tasks={tasks}
+        onToggleTask={jest.fn()}
+        onUpdateTask={onUpdateTask}
+      />,
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Edit Buy groceries' }));
+    await user.click(screen.getByRole('button', { name: 'Cancel' }));
+
+    expect(onUpdateTask).not.toHaveBeenCalled();
+    expect(screen.getByText('Buy groceries')).toBeInTheDocument();
   });
 });

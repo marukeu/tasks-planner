@@ -35,10 +35,10 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-- [ ] The user can enter a task title.
-- [ ] The user can submit the task.
-- [ ] A successfully created task appears in the task list.
-- [ ] A task cannot be created without a title.
+- [x] The user can enter a task title.
+- [x] The user can submit the task.
+- [x] A successfully created task appears in the task list.
+- [x] A task cannot be created without a title.
 
 ---
 
@@ -50,10 +50,10 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-- [ ] The application displays all created tasks.
-- [ ] Each task displays its title.
-- [ ] Tasks are displayed in a clear and readable list.
-- [ ] An appropriate empty state is displayed when there are no tasks.
+- [x] The application displays all created tasks.
+- [x] Each task displays its title.
+- [x] Tasks are displayed in a clear and readable list.
+- [x] An appropriate empty state is displayed when there are no tasks.
 
 ---
 
@@ -65,9 +65,9 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-- [ ] The user can mark a pending task as completed.
-- [ ] The completed state is visually distinguishable from the pending state.
-- [ ] The user can mark a completed task as pending again.
+- [x] The user can mark a pending task as completed.
+- [x] The completed state is visually distinguishable from the pending state.
+- [x] The user can mark a completed task as pending again.
 
 ---
 
@@ -79,10 +79,10 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-- [ ] The user can edit an existing task.
-- [ ] The user can save the changes.
-- [ ] The updated information is displayed in the task list.
-- [ ] The user cannot save an invalid task.
+- [x] The user can edit an existing task.
+- [x] The user can save the changes.
+- [x] The updated information is displayed in the task list.
+- [x] The user cannot save an invalid task.
 
 ---
 
