@@ -6,7 +6,7 @@
 
 Tasks Planner is a task organization application designed to help users create, manage, organize, and track their tasks in a simple and intuitive way.
 
-The project is also being developed as a learning project to practice and consolidate modern frontend development concepts using React, Next.js, TypeScript, and Tailwind CSS.
+The project is also being developed as a learning project to practice and consolidate modern frontend and fullstack development concepts using React, Next.js, TypeScript, Tailwind CSS, Node.js, REST APIs, and PostgreSQL.
 
 ### Main Goal
 
@@ -17,13 +17,14 @@ Provide users with a simple way to:
 - Update task information
 - Mark tasks as completed
 - Delete tasks
+- Persist task data
 - Organize and filter tasks
 
 ---
 
 ## 2. MVP
 
-The first version of Tasks Planner will focus on the basic task management experience.
+The first version of Tasks Planner focuses on the basic task management experience.
 
 ## Feature 1 — Task Management
 
@@ -35,10 +36,10 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-- [x] The user can enter a task title.
-- [x] The user can submit the task.
-- [x] A successfully created task appears in the task list.
-- [x] A task cannot be created without a title.
+- The user can enter a task title.
+- The user can submit the task.
+- A successfully created task appears in the task list.
+- A task cannot be created without a title.
 
 ---
 
@@ -50,10 +51,10 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-- [x] The application displays all created tasks.
-- [x] Each task displays its title.
-- [x] Tasks are displayed in a clear and readable list.
-- [x] An appropriate empty state is displayed when there are no tasks.
+- The application displays all created tasks.
+- Each task displays its title.
+- Tasks are displayed in a clear and readable list.
+- An appropriate empty state is displayed when there are no tasks.
 
 ---
 
@@ -65,9 +66,9 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-- [x] The user can mark a pending task as completed.
-- [x] The completed state is visually distinguishable from the pending state.
-- [x] The user can mark a completed task as pending again.
+- The user can mark a pending task as completed.
+- The completed state is visually distinguishable from the pending state.
+- The user can mark a completed task as pending again.
 
 ---
 
@@ -79,10 +80,10 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-- [x] The user can edit an existing task.
-- [x] The user can save the changes.
-- [x] The updated information is displayed in the task list.
-- [x] The user cannot save an invalid task.
+- The user can edit an existing task.
+- The user can save the changes.
+- The updated information is displayed in the task list.
+- The user cannot save an invalid task.
 
 ---
 
@@ -94,15 +95,52 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-- [ ] The user can delete an existing task.
-- [ ] The deleted task no longer appears in the task list.
-- [ ] The application prevents accidental deletion when confirmation is required.
+- The user can delete an existing task.
+- The deleted task no longer appears in the task list.
+- The application prevents accidental deletion when confirmation is required.
 
 ---
 
-## Feature 2 — Task Organization
+## Feature 2 — Task Persistence
 
-### Epic 2.1 — Categorize Tasks
+### Epic 2.1 — Backend API
+
+#### User Story
+
+> As a user, I want my tasks to be stored by the application so that my data is not lost when I leave the page.
+
+#### Acceptance Criteria
+
+- The application provides a REST API for task management.
+- The API supports creating tasks.
+- The API supports retrieving tasks.
+- The API supports updating tasks.
+- The API supports deleting tasks.
+- The API validates task data.
+- The API returns appropriate HTTP status codes and error responses.
+
+---
+
+### Epic 2.2 — Database Persistence
+
+#### User Story
+
+> As a user, I want my tasks to persist between sessions so that I can access them later.
+
+#### Acceptance Criteria
+
+- Tasks are stored in a PostgreSQL database.
+- Tasks remain available after restarting the application.
+- Task creation is persisted in the database.
+- Task updates are persisted in the database.
+- Task deletion is reflected in the database.
+- The frontend retrieves task data from the backend API.
+
+---
+
+## Feature 3 — Task Organization
+
+### Epic 3.1 — Categorize Tasks
 
 #### User Story
 
@@ -110,13 +148,13 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-- [ ] A task can have a category.
-- [ ] The category is displayed with the task.
-- [ ] The user can change a task's category.
+- A task can have a category.
+- The category is displayed with the task.
+- The user can change a task's category.
 
 ---
 
-### Epic 2.2 — Filter Tasks
+### Epic 3.2 — Filter Tasks
 
 #### User Story
 
@@ -124,10 +162,10 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 #### Acceptance Criteria
 
-- [ ] The user can filter tasks by completion status.
-- [ ] The user can filter tasks by category.
-- [ ] The task list updates according to the selected filters.
-- [ ] The user can clear the applied filters.
+- The user can filter tasks by completion status.
+- The user can filter tasks by category.
+- The task list updates according to the selected filters.
+- The user can clear the applied filters.
 
 ---
 
@@ -135,7 +173,7 @@ The first version of Tasks Planner will focus on the basic task management exper
 
 The following features are outside the initial MVP and may be considered as the project evolves.
 
-## Feature 3 — Task Details
+## Feature 4 — Task Details
 
 Potential capabilities:
 
@@ -145,21 +183,13 @@ Potential capabilities:
 - Tags
 - Subtasks
 
-## Feature 4 — Task Search
+## Feature 5 — Task Search
 
 Potential capabilities:
 
 - Search tasks by title
 - Search tasks by description
 - Combine search with filters
-
-## Feature 5 — Persistence
-
-Potential capabilities:
-
-- Persist tasks between sessions
-- Store tasks in a database
-- Synchronize task data with an API
 
 ## Feature 6 — User Accounts
 
@@ -185,20 +215,35 @@ The application should also consider:
 - Clear error handling
 - Consistent code style
 - Good user experience
+- Secure handling of user data
+- Reliable API behavior
 
 ---
 
 ## 5. Technical Direction
 
-The project will be developed using:
+### Frontend
 
 - **React** — UI and component architecture
 - **Next.js** — application framework and routing
 - **TypeScript** — static typing
 - **Tailwind CSS** — styling
 - **React Compiler** — React optimization
+
+### Backend
+
+- **Node.js** — backend runtime
+- **Express** — REST API framework
+- **PostgreSQL** — relational database
+- **ORM** — database access and type-safe queries
+
+### Development & Infrastructure
+
 - **Git** — version control
 - **GitHub** — source code repository
+- **GitHub Actions** — continuous integration
+- **Vercel** — frontend deployment
+- **Docker** — local development environment
 - **GitHub Copilot** — AI-assisted development
 
 Additional technologies may be introduced as the product requirements evolve.
