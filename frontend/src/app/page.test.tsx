@@ -71,7 +71,9 @@ describe('Home', () => {
 
     await user.type(screen.getByLabelText('Task title'), 'Buy groceries');
     await user.click(screen.getByRole('button', { name: 'Create task' }));
-    await user.click(screen.getByRole('button', { name: 'Edit Buy groceries' }));
+    await user.click(
+      screen.getByRole('button', { name: 'Edit Buy groceries' }),
+    );
 
     const input = screen.getByRole('textbox', { name: 'Edit task title' });
     await user.clear(input);
